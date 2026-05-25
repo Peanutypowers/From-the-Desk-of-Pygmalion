@@ -1,0 +1,37 @@
+using UnityEngine;
+using System.Collections;
+
+[RequireComponent(typeof(Collider))]
+public class DroppedItem : MonoBehaviour
+{
+    [Header("Settings")]
+    [SerializeField] bool autoStart;
+
+    [SerializeField] float enabledPickupDelay = 3.0f;
+
+    [Header("State")]
+    public Item item;
+    public bool pickedUp = false;
+
+    void Start()
+    {
+        if (autoStart && item != null)
+        {
+            Initialize(item);
+        }
+    }
+
+    public void Initialize(Item item)
+    {
+        this.item = item;
+        var droppedItem = Instantiate(item.prefab, transform);
+        droppedItem.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        StartCoroutine(EnablePickupAfterDelay());
+    }
+
+    IEnumerator EnablePickupAfterDelay() // has slight delay
+    {
+        yield return new WaitForSeconds(enabledPickupDelay);
+        GetComponent<Collider>().enabled = true;
+    }
+}

@@ -573,7 +573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1213640241}
   - component: {fileID: 1213640240}
-  - component: {fileID: 1213640239}
+  - component: {fileID: 1213640242}
   - component: {fileID: 1213640238}
   m_Layer: 0
   m_Name: CinemachineCamera
@@ -595,13 +595,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
   Composition:
-    ScreenPosition: {x: 0.02314502, y: -0.020066716}
+    ScreenPosition: {x: 0, y: -0.01}
     DeadZone:
       Enabled: 1
-      Size: {x: 0, y: 0.7297668}
+      Size: {x: 0.9, y: 0.92}
     HardLimits:
       Enabled: 0
-      Size: {x: 1.0020423, y: 0.7431444}
+      Size: {x: 1.31, y: 2}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -611,25 +611,6 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
---- !u!114 &1213640239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213640237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
-  TrackerSettings:
-    BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
-    AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
-    QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 0, z: -10}
 --- !u!114 &1213640240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,13 +662,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213640237}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.013663355, y: -0.05612923, z: 0.00076819665, w: 0.99832976}
-  m_LocalPosition: {x: 19.3, y: 11.6, z: 9.880899}
+  m_LocalRotation: {x: 0.005388549, y: -4.6565304e-10, z: 2.5092305e-12, w: 0.9999855}
+  m_LocalPosition: {x: 14.9, y: 10.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -6.436, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213640242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213640237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 0, z: -10}
 --- !u!1 &1584677667
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,8 +915,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863791137}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.013663354, y: -0.05612922, z: 0.0007681966, w: 0.99832976}
-  m_LocalPosition: {x: 19.3, y: 11.6, z: 9.880899}
+  m_LocalRotation: {x: 0.0053885495, y: -4.656531e-10, z: 2.5092309e-12, w: 0.9999855}
+  m_LocalPosition: {x: 14.9, y: 10.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1152,9 +1152,9 @@ Transform:
   m_GameObject: {fileID: 1920353030}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 17.2, y: 8, z: 28.3}
-  m_LocalScale: {x: 4.9792485, y: 4.9792485, z: 4.9792485}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 16.84, y: 8, z: 28.3}
+  m_LocalScale: {x: 5.76, y: 5.76, z: 5.76}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -1301,44 +1301,68 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0.001
       objectReference: {fileID: 0}
-    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.3
+    - target: {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: lowerBound
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 19.8809
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
-      propertyPath: m_LocalRotation.w
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
-      propertyPath: m_LocalRotation.x
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99875486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.041447625
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.023095965
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.015410153
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 4.79
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 2.58
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002207642055555683, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
