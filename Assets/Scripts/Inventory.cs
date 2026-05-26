@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 using System;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Collider))]
+//[RequireComponent(typeof(Collider2D))]
 public class Inventory : MonoBehaviour
 {
     [Header("References")]
@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
     [Header("State")]
     [SerializeField] SerializedDictionary<string, Item> inventory = new();
 
-    public void OnMouseUpAsButton(Collider other) // pick up item after clicking on it
+    public void DetectItem(Collider other) // pick up item after clicking on it
     {
         if (other.CompareTag("DroppedItem"))
         {
@@ -51,5 +51,15 @@ public class Inventory : MonoBehaviour
         inventoryUI.RemoveUIItem(inventoryId);
         audioSource.PlayOneShot(dropItemClip);
 
+    }
+
+    void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                DetectItem(hit.collider);
+                Debug.Log("Clicked on: " + hit.collider.name);
+            }
+        }
     }
 }
