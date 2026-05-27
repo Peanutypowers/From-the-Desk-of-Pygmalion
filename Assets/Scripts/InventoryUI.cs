@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
+    public DroppedItem testStart;
+
+
     [Header("Prefabs")]
     [SerializeField] GameObject uiItemPrefab;
 
@@ -13,6 +16,11 @@ public class InventoryUI : MonoBehaviour
 
     [Header("State")]
     [SerializeField] SerializedDictionary<string, GameObject> inventoryUI = new();
+
+    void Start() {
+        inventory.AddItem(testStart.item); // testing
+        //AddUIItem("test", testStart.item); // testing for just UI
+    }
 
     public void AddUIItem(string inventoryId, Item item) // add new item to ui and initialize it
     {

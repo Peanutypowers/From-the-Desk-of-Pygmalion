@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void AddItem(Item item)
+    public void AddItem(Item item)
     {
         var inventoryId = Guid.NewGuid().ToString(); // allows for multiple instances of same item
         // add to dictionary and update UI

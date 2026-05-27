@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9fedfcc775a5246b6783a4f6851d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
+  testStart: {fileID: 1555873191}
   uiItemPrefab: {fileID: 5947483789477222862, guid: 7e1c166aaea34fd46b2485978a25cae0, type: 3}
   inventory: {fileID: 1863791143}
   uiInventoryParent: {fileID: 1469198298}
