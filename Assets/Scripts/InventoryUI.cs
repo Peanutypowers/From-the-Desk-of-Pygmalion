@@ -20,11 +20,14 @@ public class InventoryUI : MonoBehaviour
         itemUI.transform.SetParent(uiInventoryParent);
         inventoryUI.Add(inventoryId, itemUI.gameObject);
         itemUI.Initialize(inventoryId, item, inventory.DropItem);
+        Debug.Log($"Added {item.name} to inventory UI with id {inventoryId}");
     }
 
     public void RemoveUIItem(string inventoryId)
     {
         var itemUI = inventoryUI.GetValueOrDefault(inventoryId);
+        Debug.Log($"Removed {itemUI.name} from inventory UI with id {inventoryId}");
+
         inventoryUI.Remove(inventoryId);
         Destroy(itemUI);
     }

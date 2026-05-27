@@ -181,8 +181,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068357201}
   m_HandleRect: {fileID: 2068357199}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999714
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1648,7 +1648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00067758607, y: 0}
+  m_AnchoredPosition: {x: 0.0000074579903, y: 0}
   m_SizeDelta: {x: -183, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1555873184 stripped
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroppedItem
   autoStart: 1
-  enabledPickupDelay: 3
+  enabledPickupDelay: 0
   item: {fileID: 11400000, guid: c76cac735e24ab34fa9b541070f8b896, type: 2}
   pickedUp: 0
 --- !u!1 &1631534048

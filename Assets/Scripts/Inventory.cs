@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
         {
             var droppedItem = other.GetComponent<DroppedItem>();
             if(droppedItem.pickedUp) return; // make sure the item wasn't already picked up somehow
+            Debug.Log($"Detected item: {droppedItem.item.name}");
             AddItem(droppedItem.item);
             Destroy(other.gameObject);
             audioSource.PlayOneShot(pickUpItemClip);
@@ -38,6 +39,7 @@ public class Inventory : MonoBehaviour
         // add to dictionary and update UI
         inventory.Add(inventoryId, item);
         inventoryUI.AddUIItem(inventoryId, item);
+        Debug.Log($"Added {item.name} to normal inventory with id {inventoryId}");
     }
 
     public void DropItem(string inventoryId)
