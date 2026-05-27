@@ -182,7 +182,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2068357199}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -457,8 +457,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1649633986}
   m_HandleRect: {fileID: 1649633984}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.61
+  m_Value: 1
+  m_Size: 0.60999995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1682,6 +1682,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7487546967502482518, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
   m_PrefabInstance: {fileID: 6356089546660033991}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1555873191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555873184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9c237ce5a877347a102c4c132729e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItem
+  autoStart: 1
+  enabledPickupDelay: 3
+  item: {fileID: 11400000, guid: c76cac735e24ab34fa9b541070f8b896, type: 2}
+  pickedUp: 0
 --- !u!1 &1649633983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,12 +2653,20 @@ PrefabInstance:
       value: MouseSphere
       objectReference: {fileID: 0}
     - target: {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: leftBound
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: moveSpeed
       value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: lowerBound
       value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      propertyPath: rightBound
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
       propertyPath: m_LocalScale.x
@@ -2721,6 +2745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BerryPlaceholder
       objectReference: {fileID: 0}
+    - target: {fileID: 4544308134500174476, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
+      propertyPath: m_TagString
+      value: DroppedItem
+      objectReference: {fileID: 0}
     - target: {fileID: 7487546967502482518, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.6
@@ -2768,6 +2796,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4544308134500174476, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1555873187}
+    - targetCorrespondingSourceObject: {fileID: 4544308134500174476, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555873191}
   m_SourcePrefab: {fileID: 100100000, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
