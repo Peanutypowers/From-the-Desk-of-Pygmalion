@@ -4,6 +4,9 @@ using Unity.Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+    public GameObject rightButton;
+    public GameObject leftButton;
+    public bool buttonActivated = true;
     private Vector3 mousePosition;
 	public float moveSpeed = 0.001f;
     [SerializeField] private Button btnRight = null;
@@ -72,6 +75,21 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Hides the right/left movement buttons when the inventory is pulled up
+        if (Input.GetButtonDown("Inventory") && buttonActivated)
+        {
+            rightButton.SetActive(true);
+            leftButton.SetActive(true);
+            buttonActivated = false;
+        }    
+        else if (Input.GetButtonDown("Inventory") && !buttonActivated)
+        {
+            rightButton.SetActive(false);
+            leftButton.SetActive(false);
+            buttonActivated = true;
+        }
+
+
         /* // Changes moveSpeed to 0 gradually when the mouse isn't moving
            // Brings player back to center of screen during this time
         if (Input.GetAxis("Mouse X") == 0) {
