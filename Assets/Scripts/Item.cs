@@ -34,7 +34,11 @@ public class Item : MonoBehaviour
 
     public void DetectItem(Collider other) // pick up item after clicking on it
     {
+        if(other.gameObject.tag == "Items")
+        {
+            Debug.Log("Test Items");
             inventoryManager.AddItem(itemName, quantity, sprite);
             Destroy(other.gameObject);
+        }
     }
 }
