@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "From-the-Desk-of-Pygmalion.slnx",
+    "dotnet.defaultSolution": "From the Desk of Pygmalion.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
