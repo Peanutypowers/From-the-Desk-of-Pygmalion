@@ -10,6 +10,7 @@ public class SimonGameManager : MonoBehaviour
     private int numTiles;
     private Tile[] tile;
     [SerializeField] private int startLength = 3;
+    [SerializeField] private int endLength = 5;
 
     [Header("Game Objects")]
     [SerializeField] private Tile tilePrefab;
@@ -85,7 +86,17 @@ public class SimonGameManager : MonoBehaviour
                 PlayTone(index);
                 // Increment the current index in the sequence
                 currentIndex++;
-                // If we've reached the end, add another light and play sequence again
+
+                // If we've reached the set end, end the game with success
+                if (currentIndex == endLength) {
+                    Debug.Log("Congratulations! You've completed all levels.");
+                    gameMode = GameMode.Menu;
+                    playButton.SetActive(true);
+                    PlayEndTone();
+                    return;
+                }
+
+                // If we've reached the end with no errors, add another light and play sequence again
                 if (currentIndex == levelTiles.Count) {
                     levelTiles.Add(Random.Range(0, numTiles));
                     StartCoroutine(PlaySequence());
@@ -99,6 +110,14 @@ public class SimonGameManager : MonoBehaviour
                 PlayErrorTone();
             }
         }
+    }
+
+    private void PlayEndTone() {
+        // Play a longer high pitched sound
+        audioSource.pitch = 1.5f;
+        double currentTime = AudioSettings.dspTime;
+        audioSource.PlayScheduled(currentTime);
+        audioSource.SetScheduledEndTime(currentTime + 10 * duration); // 3 not 10
     }
 
     private void PlayErrorTone() {
