@@ -9,13 +9,14 @@ public class SimonGameManager : MonoBehaviour
     [SerializeField] private int numCols = 2;
     private int numTiles;
     private Tile[] tile;
+    private SimonMoon moon;
     [SerializeField] private int startLength = 3;
     [SerializeField] private int endLength = 5;
 
     [Header("Game Objects")]
     [SerializeField] private Tile tilePrefab;
+    [SerializeField] private SimonMoon moonPrefab;
     [SerializeField] private Transform gameArea;
-    [SerializeField] private GameObject playButton;
 
     [Header("Audio Setup")]
     [SerializeField] private float duration = 0.2f;
@@ -54,6 +55,17 @@ public class SimonGameManager : MonoBehaviour
             }
         }
 
+        // Move the four tiles manually because of the moon
+        tile[0].transform.localPosition = new Vector3(-1, 1, 0);
+        tile[1].transform.localPosition = new Vector3(1, 1, 0);
+        tile[2].transform.localPosition = new Vector3(-1, -1, 0);
+        tile[3].transform.localPosition = new Vector3(1, -1, 0);
+
+        // Create the center moon
+        moon = Instantiate(moonPrefab, gameArea);
+        moon.Init(this);
+        moon.transform.localPosition = new Vector3(0, 0, 0);
+
         // Scale the tiles to fit our vertical space
         float scale = 6f / numRows;
         gameArea.localScale = Vector3.one * scale;
@@ -65,6 +77,7 @@ public class SimonGameManager : MonoBehaviour
 
     private IEnumerator MenuTileAnimation() {
         while(gameMode == GameMode.Menu) {
+            yield return new WaitForSeconds(duration);
             // Light a random tile
             yield return FlashTile(Random.Range(0, numTiles));
             // Wait before flashing the next one
@@ -78,6 +91,20 @@ public class SimonGameManager : MonoBehaviour
         tile[index].TurnOff();
     }
 
+    private IEnumerator EndGameAnimation() {
+        yield return new WaitForSeconds(duration * 2);
+        moon.TurnOn();
+        // Flash all tiles
+        for(int i = 0; i < numTiles; i++) {
+            yield return new WaitForSeconds(duration);
+            tile[i].TurnOn();
+            yield return new WaitForSeconds(duration);
+            tile[i].TurnOff();
+        }
+        yield return new WaitForSeconds(duration);
+        PlayEndTone();
+    }
+
     public void PlayLightAndTone(int index) {
         if(gameMode == GameMode.Playing) {
             StartCoroutine(FlashTile(index));
@@ -89,10 +116,9 @@ public class SimonGameManager : MonoBehaviour
 
                 // If we've reached the set end, end the game with success
                 if (currentIndex == endLength) {
+                    StartCoroutine(EndGameAnimation());
                     Debug.Log("Congratulations! You've completed all levels.");
                     gameMode = GameMode.Menu;
-                    playButton.SetActive(true);
-                    PlayEndTone();
                     return;
                 }
 
@@ -106,8 +132,9 @@ public class SimonGameManager : MonoBehaviour
                 // End the game
                 Debug.Log("You got to level " + (levelTiles.Count - 2));
                 gameMode = GameMode.Menu;
-                playButton.SetActive(true);
+                moon.TurnOn();
                 PlayErrorTone();
+                StartCoroutine(MenuTileAnimation()); // duration being 1.0f during this might be nice
             }
         }
     }
@@ -141,8 +168,8 @@ public class SimonGameManager : MonoBehaviour
     }
 
     public void Play() {
-        // Hide the play button
-        playButton.SetActive(false);
+        // Turn the moon off
+        moon.TurnOff();
 
         // Stop the lights flashing from the menu
         StopCoroutine(MenuTileAnimation());
