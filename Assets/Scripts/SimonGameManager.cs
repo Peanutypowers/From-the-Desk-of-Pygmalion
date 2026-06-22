@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SimonGameManager : MonoBehaviour
@@ -8,10 +9,12 @@ public class SimonGameManager : MonoBehaviour
     [SerializeField] private int numCols = 2;
     private int numTiles;
     private Tile[] tile;
+    [SerializeField] private int startLength = 3;
 
     [Header("Game Objects")]
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private Transform gameArea;
+    [SerializeField] private GameObject playButton;
 
     [Header("Audio Setup")]
     [SerializeField] private float duration = 0.2f;
@@ -25,6 +28,10 @@ public class SimonGameManager : MonoBehaviour
     }
 
     private GameMode gameMode = GameMode.None;
+
+    // For tracking the level
+    private List<int> levelTiles;
+    private int currentIndex = 0;
 
     void Start() {
         numTiles = numRows * numCols;
@@ -71,8 +78,35 @@ public class SimonGameManager : MonoBehaviour
     }
 
     public void PlayLightAndTone(int index) {
-        StartCoroutine(FlashTile(index));
-        PlayTone(index);
+        if(gameMode == GameMode.Playing) {
+            StartCoroutine(FlashTile(index));
+            // If it was the correct tile
+            if(index == levelTiles[currentIndex]) {
+                PlayTone(index);
+                // Increment the current index in the sequence
+                currentIndex++;
+                // If we've reached the end, add another light and play sequence again
+                if (currentIndex == levelTiles.Count) {
+                    levelTiles.Add(Random.Range(0, numTiles));
+                    StartCoroutine(PlaySequence());
+                }
+            }
+            else {
+                // End the game
+                Debug.Log("You got to level " + (levelTiles.Count - 2));
+                gameMode = GameMode.Menu;
+                playButton.SetActive(true);
+                PlayErrorTone();
+            }
+        }
+    }
+
+    private void PlayErrorTone() {
+        // Play a longer low pitched sound
+        audioSource.pitch = 0.5f;
+        double currentTime = AudioSettings.dspTime;
+        audioSource.PlayScheduled(currentTime);
+        audioSource.SetScheduledEndTime(currentTime + 10 * duration); // 3 not 10
     }
 
     private void PlayTone(int index) {
@@ -85,5 +119,43 @@ public class SimonGameManager : MonoBehaviour
         double currentTime = AudioSettings.dspTime;
         audioSource.PlayScheduled(currentTime);
         audioSource.SetScheduledEndTime(currentTime + duration);
+    }
+
+    public void Play() {
+        // Hide the play button
+        playButton.SetActive(false);
+
+        // Stop the lights flashing from the menu
+        StopCoroutine(MenuTileAnimation());
+
+        // Clear out old level data. Start with three lights
+        levelTiles = new();
+
+        for(int i = 0; i < startLength; i++) {
+            levelTiles.Add(Random.Range(0, numTiles));
+        }
+
+        // Play the game light sequence
+        StartCoroutine(PlaySequence());
+
+    }
+
+    private IEnumerator PlaySequence() {
+        // Set the appropriate game mode
+        gameMode = GameMode.Listening;
+
+        // Wait two seconds to start
+        yield return new WaitForSeconds(2f);
+        // Light each tile in sequence
+        foreach(int index in levelTiles) {
+            PlayTone(index);
+            yield return FlashTile(index);
+            // Pause before the next one
+            yield return new WaitForSeconds(duration);
+        }
+
+        // Set the GameMode to Playing (allows user input)
+        currentIndex = 0;
+        gameMode = GameMode.Playing;
     }
 }
