@@ -182,7 +182,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2068357199}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999973
+  m_Size: 0.99998987
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -553,6 +553,7 @@ Transform:
   m_Children:
   - {fileID: 291404448}
   - {fileID: 115709180}
+  - {fileID: 1501979415}
   - {fileID: 1555873189}
   - {fileID: 1765746858}
   m_Father: {fileID: 0}
@@ -729,7 +730,7 @@ GameObject:
   - component: {fileID: 404045078}
   m_Layer: 0
   m_Name: SlideGameManager
-  m_TagString: Untagged
+  m_TagString: SlidePuzzleComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1617,11 +1618,11 @@ GameObject:
   - component: {fileID: 1150604981}
   m_Layer: 0
   m_Name: GameBoard
-  m_TagString: Untagged
+  m_TagString: SlidePuzzleComponent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1150604981
 Transform:
   m_ObjectHideFlags: 0
@@ -1986,9 +1987,97 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000083519296, y: 0}
+  m_AnchoredPosition: {x: -0.000005089918, y: 0}
   m_SizeDelta: {x: -183, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!1001 &1501979414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 171350145}
+    m_Modifications:
+    - target: {fileID: 540850465558767829, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8225f98ca13aea84c84e56fa216f54f6, type: 3}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94182426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.94182426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.94182426
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157190800113500781, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_Name
+      value: Bear5Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157190800113500781, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      propertyPath: m_TagString
+      value: SlidePuzzleActivator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5157190800113500781, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1813790463}
+    - targetCorrespondingSourceObject: {fileID: 5157190800113500781, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1813790464}
+  m_SourcePrefab: {fileID: 100100000, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+--- !u!4 &1501979415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+  m_PrefabInstance: {fileID: 1501979414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1555873184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4544308134500174476, guid: 73d952f9658e0c64fa0f7ee9d9f8b978, type: 3}
@@ -2657,6 +2746,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808734816}
   m_CullTransparentMesh: 1
+--- !u!1 &1813790461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5157190800113500781, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
+  m_PrefabInstance: {fileID: 1501979414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1813790463
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813790461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.21, y: 6.23, z: 0.2}
+  m_Center: {x: -0.00000047683716, y: 0.0000009536743, z: 0}
+--- !u!114 &1813790464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813790461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88f3d775d88f294e86b9406e87fe6a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlideGameEnabler
+  slidePuzzle: {fileID: 1150604980}
 --- !u!1 &1863791137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2848,6 +2976,8 @@ MonoBehaviour:
   inventory:
     m_Keys: []
     m_Values: []
+  interactingWithPuzzle: 0
+  interactingWithSlidePuzzle: 0
 --- !u!1 &1970686550
 GameObject:
   m_ObjectHideFlags: 0

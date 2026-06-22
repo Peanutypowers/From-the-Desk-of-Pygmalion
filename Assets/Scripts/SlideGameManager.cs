@@ -11,6 +11,7 @@ public class SlideGameManager : MonoBehaviour
     private List<Transform> pieces;
     private int emptyLocation;
     private int size;
+    private int completions;
     private bool shuffling = false;
 
     //creates the game, the parameter being the thickness between tiles
@@ -56,9 +57,12 @@ public class SlideGameManager : MonoBehaviour
         {
             if (pieces[i].name != $"{i}")
             {
+                //returns false until puzzle is completed
                 return false;
             }
         }
+        //returns true when the puzzle is completed, can be used here if you want to do other things/activate other thigns once the puzzle is completed
+        Debug.Log("completed");
         return true;
     }
 
@@ -102,6 +106,7 @@ public class SlideGameManager : MonoBehaviour
         pieces = new List<Transform>();
         //size of the board
         size = 3;
+        completions = 0;
         CreateGamePieces(0.01f);
     }
 
@@ -110,6 +115,17 @@ public class SlideGameManager : MonoBehaviour
     {
         if (!shuffling && CheckCompletion())
         {
+            //checks if the puzzle is completed and shuffled, since the shuffle function shuffles the puzzle and then sets shuffling to false
+            //this then sets shuffling to true so the puzzle gets shuffled again, which within the shuffle function it sets itself to false again
+            //i noticed it starts completed, and then shuffles after being "completed" once
+            //so what this completions value is for is to check if the player themself has actually completed the puzzle, 
+            //since it needs to be completed twice in order to actually have been completed by the player
+            completions++;
+            if (completions == 2)
+            {
+                // this could also just be destroy, i dont think it makes much of a difference
+                this.gameObject.SetActive(false);
+            }
             shuffling = true;
             StartCoroutine(WaitShuffle(0.5f));
         }
