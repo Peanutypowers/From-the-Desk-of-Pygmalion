@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     public bool menuActivated;
     public ItemSlot[] itemSlot;
 
+    public ItemSO[] itemSOArray;
+
     void Start()
     {
         
@@ -27,6 +29,17 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             menuActivated = true;
+        }
+    }
+
+    public void UseItem(string itemName)
+    {
+        for(int i = 0; i < itemSOArray.Length; i++)
+        {
+            if(itemSOArray[i].itemName == itemName)
+            {
+                itemSOArray[i].UseItem();
+            }
         }
     }
 

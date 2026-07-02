@@ -432,6 +432,8 @@ MonoBehaviour:
   - {fileID: 1042963077}
   - {fileID: 1781335703}
   - {fileID: 371717696}
+  itemSOArray:
+  - {fileID: 11400000, guid: 6dc42b5551083974082b1ff1feb57775, type: 2}
 --- !u!1 &273348836
 GameObject:
   m_ObjectHideFlags: 0
