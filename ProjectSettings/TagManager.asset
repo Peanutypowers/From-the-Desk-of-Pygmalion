@@ -7,6 +7,13 @@ TagManager:
   - DroppedItem
   - SlidePuzzleActivator
   - SlidePuzzleComponent
+  - iSpyPuzzleEnabler
+  - iSpyObjOne
+  - iSpyObjTwo
+  - iSpyObjThree
+  - iSpyObjFour
+  - iSpyObjFive
+  - iSpyObjSix
   layers:
   - Default
   - TransparentFX

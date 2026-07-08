@@ -21,12 +21,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] SerializedDictionary<string, Item> inventory = new();
 
     public bool interactingWithPuzzle;
-    /*i created this variable, that way we can use the interactingWithPuzzle variable as a way to check if any puzzles are being
-     * interacted with at all, though the second more specific variable, interactingWithSlidePuzzle, will allow us to differentiate
-     * the slide puzzle from other uzzles, and as other puzzle types get added, we can differentiate them. There may be a more 
-     * efficient way to do this, though this is what I can currently think of. -jorge/puggy
-     */
-    public bool interactingWithSlidePuzzle;
 
     public void DetectItem(Collider other) // pick up item after clicking on it
     {
@@ -34,7 +28,6 @@ public class Inventory : MonoBehaviour
         {
             //swaps the variables, that way it can identify that a puzzle is being interacted with, specifically the slide puzzle
             interactingWithPuzzle = !interactingWithPuzzle;
-            interactingWithSlidePuzzle = !interactingWithSlidePuzzle;
         }
         if (other.CompareTag("DroppedItem") && !interactingWithPuzzle)
         {
