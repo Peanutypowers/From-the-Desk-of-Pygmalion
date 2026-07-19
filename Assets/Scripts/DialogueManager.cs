@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance; // access anywhere
 
     //public Image characterIcon;
-    public TextMeshProUGUI characterName;
+    //public TextMeshProUGUI characterName;
     private TextMeshProUGUI dialogueArea;
     public GameObject notebook;
     public GameObject notice;
@@ -71,8 +71,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentLine = lines.Dequeue(); // get line
-        characterName.text = currentLine.character.name;
-        SetSpeaker(currentLine.character.speaker);  
+        //characterName.text = currentLine.character.name;
+        SetSpeaker(currentLine.speaker);  
 
         StopAllCoroutines();
         StartCoroutine(TypeSentence(currentLine)); 
