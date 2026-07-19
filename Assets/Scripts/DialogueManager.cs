@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public float typingSpeed = 0.2f;
 
     private int speaker;
+    private DialogueLine currentLine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,9 +46,23 @@ public class DialogueManager : MonoBehaviour
         DisplayNextDialogueLine();
     }
 
-    // displays next line
-    public void DisplayNextDialogueLine()
+    // either finish the current line or move on to the next
+    // depending on if the text is full or not
+    public void ContinueLine()
     {
+        if(dialogueArea.text == currentLine.line)
+        {
+            DisplayNextDialogueLine();
+        }
+        else
+        {
+            FinishCurrentDialogueLine();
+        }
+    }
+
+    void DisplayNextDialogueLine()
+    {
+     
         // end if queue is empty
         if(lines.Count == 0)
         {
@@ -55,14 +70,19 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        DialogueLine currentLine = lines.Dequeue(); // get line
-
+        currentLine = lines.Dequeue(); // get line
         characterName.text = currentLine.character.name;
-        SetSpeaker(currentLine.character.speaker);
+        SetSpeaker(currentLine.character.speaker);  
 
         StopAllCoroutines();
+        StartCoroutine(TypeSentence(currentLine)); 
+    }
 
-        StartCoroutine(TypeSentence(currentLine));
+    // finishes the current line
+    public void FinishCurrentDialogueLine()
+    {
+        StopAllCoroutines();
+        dialogueArea.text = currentLine.line;
     }
 
     // animates the text - add each character to end of string
