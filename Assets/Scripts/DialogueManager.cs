@@ -9,12 +9,16 @@ public class DialogueManager : MonoBehaviour
 
     //public Image characterIcon;
     public TextMeshProUGUI characterName;
-    public TextMeshProUGUI dialogueArea;
+    private TextMeshProUGUI dialogueArea;
+    public GameObject notebook;
+    public GameObject notice;
 
     private Queue<DialogueLine> lines;
 
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
+
+    private int speaker;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        lines = new Queue<DialogueLine>();
         isDialogueActive = true;
 
         lines.Clear();
@@ -53,6 +58,7 @@ public class DialogueManager : MonoBehaviour
         DialogueLine currentLine = lines.Dequeue(); // get line
 
         characterName.text = currentLine.character.name;
+        SetSpeaker(currentLine.character.speaker);
 
         StopAllCoroutines();
 
@@ -73,5 +79,25 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
+    }
+
+    void SetSpeaker(int speaker)
+    {
+        // notebook
+        if(speaker == 0)
+        {
+            notebook.SetActive(true);
+            notice.SetActive(false);
+
+            dialogueArea = notebook.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        } 
+        // notice
+        else
+        {
+            notebook.SetActive(false);
+            notice.SetActive(true);
+
+            dialogueArea = notice.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        }
     }
 }

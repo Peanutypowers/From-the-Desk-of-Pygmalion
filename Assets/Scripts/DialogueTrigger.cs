@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueCharacter
 {
     public string name;
+    public int speaker;
 }
 
 [System.Serializable]
@@ -42,6 +43,5 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnMouseDown() {
         TriggerDialogue();
-        print("the click worked");
     }
 }
