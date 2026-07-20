@@ -20,7 +20,7 @@ public class iSpyEnabler : MonoBehaviour
     private CinemachineFollow vcamFollow;
 
     //getting the interacting with puzzle variable so you can't start the iSpy while in the slide puzzle or any other puzzle
-    public Inventory inventory;
+    //public Inventory inventory;
 
     //this function is allowing the return button to make the puzzle interactable again.
     //it also re-enables the enabler's collider, i disable it so you can click it without
@@ -40,7 +40,8 @@ public class iSpyEnabler : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 //checking for if its active because you only want to be able to interact with the enabler while not in the puzzle for this one
-                if (hit.collider.CompareTag("iSpyPuzzleEnabler") && !iSpyPuzzleActive && !inventory.interactingWithPuzzle)
+                //if (hit.collider.CompareTag("iSpyPuzzleEnabler") && !iSpyPuzzleActive && !inventory.interactingWithPuzzle)
+                if (hit.collider.CompareTag("iSpyPuzzleEnabler") && iSpyPuzzleActive)
                 {
                     this.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Debug.Log("ispy interacted");
