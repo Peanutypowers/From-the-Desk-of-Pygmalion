@@ -134,7 +134,6 @@ public class SlideGameManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log("Har har har har");
                 for (int i = 0; i < pieces.Count; i++)
                 {
                     if (pieces[i] == hit.transform)

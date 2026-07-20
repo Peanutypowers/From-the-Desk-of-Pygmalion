@@ -44,7 +44,7 @@ public class iSpyEnabler : MonoBehaviour
             {
                 //checking for if its active because you only want to be able to interact with the enabler while not in the puzzle for this one
                 //if (hit.collider.CompareTag("iSpyPuzzleEnabler") && !iSpyPuzzleActive && !inventory.interactingWithPuzzle)
-                if (hit.collider.CompareTag("iSpyPuzzleEnabler") && iSpyPuzzleActive)
+                if (hit.collider.CompareTag("iSpyPuzzleEnabler") && !iSpyPuzzleActive)
                 {
                     this.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Debug.Log("ispy interacted");

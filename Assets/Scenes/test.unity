@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &54475528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4489876097813288252, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+  m_PrefabInstance: {fileID: 978539956499624713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &160679383
 Transform:
   m_ObjectHideFlags: 0
@@ -1496,6 +1501,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7624768366526549926, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
   m_PrefabInstance: {fileID: 978539956499624713}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1696071539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54475528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bff1f28d660b7498075944baf7e6ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  rightButton: {fileID: 1970686550}
+  leftButton: {fileID: 1157826698}
+  buttonActivated: 1
+  moveSpeed: 0.001
+  btnRight: {fileID: 1970686552}
+  btnLeft: {fileID: 1157826700}
+  vcam: {fileID: 1213640240}
 --- !u!1 &1808734816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2315,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4489876097813288252, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1696071539}
   m_SourcePrefab: {fileID: 100100000, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
