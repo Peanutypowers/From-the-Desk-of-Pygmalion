@@ -5,22 +5,24 @@ using Unity.Cinemachine;
 
 public class iSpyEnabler : MonoBehaviour
 {
+
+    private GameObject cam;
+    private GameObject vcam;
+    public CinemachineFollow vcamFollow;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cam = GameObject.Find("Main Camera");
+        vcam = GameObject.Find("CinemachineCamera");
         vcamFollow = vcam.GetComponent<CinemachineFollow>();
     }
-
+        
     public Button returnCamera;
     public GameObject checklist;
     public bool iSpyPuzzleActive;
-    public Camera cam;
-
-    [SerializeField] private CinemachineCamera vcam;
-    private CinemachineFollow vcamFollow;
 
     //getting the interacting with puzzle variable so you can't start the iSpy while in the slide puzzle or any other puzzle
-    //public Inventory inventory;
 
     //this function is allowing the return button to make the puzzle interactable again.
     //it also re-enables the enabler's collider, i disable it so you can click it without
@@ -29,6 +31,7 @@ public class iSpyEnabler : MonoBehaviour
     {
         iSpyPuzzleActive = false;
         this.gameObject.GetComponent<BoxCollider>().enabled = true;
+        vcam.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -45,7 +48,7 @@ public class iSpyEnabler : MonoBehaviour
                 {
                     this.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Debug.Log("ispy interacted");
-                   
+
 
                     //this is turning on the exit puzzle button and checklist
                     returnCamera.gameObject.SetActive(true);
@@ -56,7 +59,7 @@ public class iSpyEnabler : MonoBehaviour
                     //you dont want the camera wobbling when youre doing an i spy puzzle anyway
                     vcam.gameObject.SetActive(false);
                     cam.transform.position = new Vector3(17.17f, 17.54f, 72.93f);
-                    cam.orthographicSize = 5.0f;
+                    cam.GetComponent<Camera>().orthographicSize = 5.0f;
                     Debug.Log("Camera Moved");
 
                     /*the reason im not just setting it to the opposite value is because there is
