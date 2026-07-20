@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
 
+    public Animator animator;
+
     private int speaker;
     private DialogueLine currentLine;
 
@@ -34,6 +36,7 @@ public class DialogueManager : MonoBehaviour
     {
         lines = new Queue<DialogueLine>();
         isDialogueActive = true;
+        animator.Play("show");
 
         lines.Clear();
 
@@ -99,6 +102,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
+        animator.Play("hide");
     }
 
     void SetSpeaker(int speaker)

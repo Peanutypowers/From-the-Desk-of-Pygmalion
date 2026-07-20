@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: NotebookLine
   m_EditorClassIdentifier: Assembly-CSharp::NotebookLine
   speaker: 0
-  line: 
+  line: 'I am a notebook
+
+    full of whimsy
+
+    and fun'
