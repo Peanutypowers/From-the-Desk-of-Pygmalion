@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     //public Image characterIcon;
     //public TextMeshProUGUI characterName;
     private TextMeshProUGUI dialogueArea;
+    private AudioSource audioSource;
     public GameObject notebook;
     public GameObject notice;
 
@@ -17,11 +18,13 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueActive = false;
     public float typingSpeed = 0.2f;
+    public float duration = 0.3f;
 
     public Animator animator;
 
     private int speaker;
     private DialogueLine currentLine;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -91,9 +94,11 @@ public class DialogueManager : MonoBehaviour
     // animates the text - add each character to end of string
     IEnumerator TypeSentence(DialogueLine dialogueLine)
     {
+        //PlayAudio(); // play it once
         dialogueArea.text = "";
         foreach(char letter in dialogueLine.line.ToCharArray())
         {
+            PlayAudio(); // play it for each letter
             dialogueArea.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
@@ -114,6 +119,7 @@ public class DialogueManager : MonoBehaviour
             notice.SetActive(false);
 
             dialogueArea = notebook.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            audioSource = notebook.transform.GetChild(1).GetComponent<AudioSource>();
         } 
         // notice
         else
@@ -122,6 +128,16 @@ public class DialogueManager : MonoBehaviour
             notice.SetActive(true);
 
             dialogueArea = notice.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            audioSource = notice.transform.GetChild(1).GetComponent<AudioSource>();
         }
+    }
+
+    private void PlayAudio()
+    {
+        audioSource.pitch = Mathf.Lerp(1.0f, 1.5f, Random.Range(0f, 1f)); // slight pitch variations
+
+        double currentTime = AudioSettings.dspTime;
+        audioSource.PlayScheduled(currentTime);
+        audioSource.SetScheduledEndTime(currentTime + duration);
     }
 }
