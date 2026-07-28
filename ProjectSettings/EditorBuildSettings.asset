@@ -20,6 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JorgePuzzlesTest.unity
     guid: 5c0c6e3f4ec0db042b3ad9285365f939
+    path: Assets/Scenes/NewRoomTrigger.unity
+    guid: f565d4b6bb6053c4d945945f07d6de83
+  - enabled: 1
+    path: Assets/Scenes/LoadingTest.unity
+    guid: cdbf7e26f64730d4794351584ca9d834
   - enabled: 0
     path: Assets/Scenes/block.unity
     guid: c73259781eed497438ec6cdc1cecc82c

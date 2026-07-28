@@ -15,6 +15,7 @@ TagManager:
   - iSpyObjFour
   - iSpyObjFive
   - iSpyObjSix
+  - Doorway
   layers:
   - Default
   - TransparentFX
