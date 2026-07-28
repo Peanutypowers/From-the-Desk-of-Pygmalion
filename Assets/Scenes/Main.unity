@@ -1670,7 +1670,6 @@ GameObject:
   - component: {fileID: 1863791139}
   - component: {fileID: 1863791138}
   - component: {fileID: 1863791142}
-  - component: {fileID: 1863791143}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1828,18 +1827,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!114 &1863791143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863791137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3db10596f7fd354ba9f6847b87de0a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!1 &1970686550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,7 +2299,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5010573220080770875, guid: 5be1b9fa912e4ae4a91b95214e995a05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
