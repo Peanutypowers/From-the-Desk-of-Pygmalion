@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 86778b2c824c46a409642dd109ac6e37
   - enabled: 1
-    path: Assets/Scenes/JorgePuzzlesTest.unity
+    path: Assets/Scenes/InventoryScene.unity
     guid: e5209ff255bae034a96191fac1fb7540
   - enabled: 1
     path: Assets/Scenes/DialogueScene.unity
     guid: 10af6ebd2131efe4fbc7b9dca4940fc2
+  - enabled: 1
+    path: Assets/Scenes/JorgePuzzlesTest.unity
+    guid: 5c0c6e3f4ec0db042b3ad9285365f939
   - enabled: 0
     path: Assets/Scenes/block.unity
     guid: c73259781eed497438ec6cdc1cecc82c
