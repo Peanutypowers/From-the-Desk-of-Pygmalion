@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     private float currentWall = 1; // 1 is forward wall, 0 is left wall, 2 is right wall, 3 is back wall
     private float leftBound;
     private float rightBound;
+    private float leftZBound;
+    private float rightZBound;
     private float lowerBound;
     private float upperBound;
 
@@ -33,7 +35,7 @@ public class CameraController : MonoBehaviour
         Debug.Log("Turning right.");
 
         if(currentWall == 1) { // forward wall, bring to right wall
-            vcamFollow.FollowOffset = new Vector3(-10f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(-10f, 0f, 0);
             currentWall = 2;
         } else if (currentWall == 0) { // left wall, bring to forward wall
             vcamFollow.FollowOffset = new Vector3(0f, 0f, -10f);
@@ -42,7 +44,7 @@ public class CameraController : MonoBehaviour
             vcamFollow.FollowOffset = new Vector3(0f, 0f, 10f);
             currentWall = 3;
         } else if(currentWall == 3) { // back wall, bring to left wall
-            vcamFollow.FollowOffset = new Vector3(10f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(10f, 0f, 0);
             currentWall = 0;
         }
         // new Vector3(-10f, 0f, -10f) moves it to the right wall with no corner
@@ -53,7 +55,7 @@ public class CameraController : MonoBehaviour
         Debug.Log("Turning left.");
 
         if(currentWall == 1) { // forward wall, bring to left wall
-            vcamFollow.FollowOffset = new Vector3(10f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(10f, 0f, 0);
             currentWall = 0;
         } else if (currentWall == 0) { // left wall, bring to back wall
             vcamFollow.FollowOffset = new Vector3(0f, 0f, 10f);
@@ -62,7 +64,7 @@ public class CameraController : MonoBehaviour
             vcamFollow.FollowOffset = new Vector3(0f, 0f, -10f);
             currentWall = 1;
         } else if(currentWall == 3) { // back wall, bring to right wall
-            vcamFollow.FollowOffset = new Vector3(-10f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(-10f, 0f, 0);
             currentWall = 2;
         }
     }
@@ -102,13 +104,26 @@ public class CameraController : MonoBehaviour
 
 		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Bind mouse position
-        if(mousePosition.x < leftBound) {
-            mousePosition.x = leftBound;
+        // Bind mouse position, change between binding x and z depending on wall faced
+        if(currentWall == 1 || currentWall == 3) {
+            if(mousePosition.x < leftBound) {
+                mousePosition.x = leftBound;
+            }
+            if(mousePosition.x > rightBound) {
+                mousePosition.x = rightBound;
+            }
+            mousePosition.z = transform.position.z;
         }
-        if(mousePosition.x > rightBound) {
-            mousePosition.x = rightBound;
+        else {
+            if(mousePosition.z < leftZBound) {
+                mousePosition.z = leftZBound;
+            }
+            if(mousePosition.z > rightZBound) {
+                mousePosition.z = rightZBound;
+            }
+            mousePosition.x = transform.position.x;
         }
+
         if(mousePosition.y < lowerBound) {
             mousePosition.y = lowerBound;
         }
@@ -116,8 +131,7 @@ public class CameraController : MonoBehaviour
             mousePosition.y = upperBound;
         }
 
-        mousePosition.z = transform.position.z; // will be 0
-		transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+		transform.position = Vector3.Lerp(transform.position, mousePosition, moveSpeed);
         //transform.position = Vector3.MoveTowards(transform.position, mousePosition, moveSpeed * Time.deltaTime);
         
     }
@@ -126,6 +140,8 @@ public class CameraController : MonoBehaviour
     void calculateBounds(Vector3 targetPosition) {
         leftBound = targetPosition.x - 5f;
         rightBound = targetPosition.x + 5f;
+        leftZBound = targetPosition.z - 5f;
+        rightZBound = targetPosition.z + 5f;
         lowerBound = targetPosition.y - 5f;
         upperBound = targetPosition.y + 5f;
     }
