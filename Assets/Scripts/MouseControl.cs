@@ -35,16 +35,16 @@ public class CameraController : MonoBehaviour
         Debug.Log("Turning right.");
 
         if(currentWall == 1) { // forward wall, bring to right wall
-            vcamFollow.FollowOffset = new Vector3(-10f, 0f, 0);
+            vcamFollow.FollowOffset = new Vector3(-10f, 0.91f, 0);
             currentWall = 2;
         } else if (currentWall == 0) { // left wall, bring to forward wall
-            vcamFollow.FollowOffset = new Vector3(0f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(0f, 0.91f, -10f);
             currentWall = 1;
         } else if(currentWall == 2) { // right wall, bring to back wall
-            vcamFollow.FollowOffset = new Vector3(0f, 0f, 10f);
+            vcamFollow.FollowOffset = new Vector3(0f, 0.91f, 10f);
             currentWall = 3;
         } else if(currentWall == 3) { // back wall, bring to left wall
-            vcamFollow.FollowOffset = new Vector3(10f, 0f, 0);
+            vcamFollow.FollowOffset = new Vector3(10f, 0.91f, 0);
             currentWall = 0;
         }
         // new Vector3(-10f, 0f, -10f) moves it to the right wall with no corner
@@ -55,16 +55,16 @@ public class CameraController : MonoBehaviour
         Debug.Log("Turning left.");
 
         if(currentWall == 1) { // forward wall, bring to left wall
-            vcamFollow.FollowOffset = new Vector3(10f, 0f, 0);
+            vcamFollow.FollowOffset = new Vector3(10f, 0.91f, 0);
             currentWall = 0;
         } else if (currentWall == 0) { // left wall, bring to back wall
-            vcamFollow.FollowOffset = new Vector3(0f, 0f, 10f);
+            vcamFollow.FollowOffset = new Vector3(0f, 0.91f, 10f);
             currentWall = 3;
         } else if(currentWall == 2) { // right wall, bring to forward wall
-            vcamFollow.FollowOffset = new Vector3(0f, 0f, -10f);
+            vcamFollow.FollowOffset = new Vector3(0f, 0.91f, -10f);
             currentWall = 1;
         } else if(currentWall == 3) { // back wall, bring to right wall
-            vcamFollow.FollowOffset = new Vector3(-10f, 0f, 0);
+            vcamFollow.FollowOffset = new Vector3(-10f, 0.91f, 0);
             currentWall = 2;
         }
     }
