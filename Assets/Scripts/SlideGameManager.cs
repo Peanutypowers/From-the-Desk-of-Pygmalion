@@ -99,13 +99,28 @@ public class SlideGameManager : MonoBehaviour
             }
         }
     }
-
+    private int difficulty;
+    private GameObject roomNum;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pieces = new List<Transform>();
-        //size of the board
-        size = 3;
+        roomNum = GameObject.Find("Doorway");
+        difficulty = roomNum.GetComponent<NewRoomTrigger>().rooms;
+        pieces = new List<Transform>();
+        //size of the board, increment these if statements based on how many scenes are being laoded/unloaded
+        if (difficulty < 4)
+        {
+            size = 3;
+        }
+        else if (difficulty > 3 && difficulty < 8)
+        {
+            size = 4;
+        }
+        else if (difficulty > 8 && difficulty < 14)
+        {
+            size = 5;
+        }
         completions = 0;
         CreateGamePieces(0.01f);
     }
