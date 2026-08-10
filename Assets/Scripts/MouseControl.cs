@@ -78,14 +78,16 @@ public class CameraController : MonoBehaviour
         // Hides the right/left movement buttons when the inventory is pulled up
         if (Input.GetButtonDown("Inventory") && buttonActivated)
         {
-            rightButton.SetActive(true);
-            leftButton.SetActive(true);
+            Debug.Log("Button Activated!");
+            rightButton.SetActive(false);
+            leftButton.SetActive(false);
             buttonActivated = false;
         }    
         else if (Input.GetButtonDown("Inventory") && !buttonActivated)
         {
-            rightButton.SetActive(false);
-            leftButton.SetActive(false);
+            Debug.Log("Button Deactivated!");
+            rightButton.SetActive(true);
+            leftButton.SetActive(true);
             buttonActivated = true;
         }
 

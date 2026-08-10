@@ -16,7 +16,9 @@ public class NewRoomTrigger : MonoBehaviour
                 {
                     SceneManager.UnloadSceneAsync(0);
                     SceneManager.UnloadSceneAsync(1);
-                    SceneManager.LoadScene(3, LoadSceneMode.Additive);
+                    SceneManager.UnloadSceneAsync(2);
+                    SceneManager.UnloadSceneAsync(3);
+                    SceneManager.LoadScene(5, LoadSceneMode.Additive);
                 }
             }
         }
