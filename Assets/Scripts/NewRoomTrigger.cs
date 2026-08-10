@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class NewRoomTrigger : MonoBehaviour
 {
+    public int rooms = 3;
     // Update is called once per frame
     void Update()
     {
@@ -14,9 +15,16 @@ public class NewRoomTrigger : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Doorway"))
                 {
+<<<<<<< Updated upstream
                     SceneManager.UnloadSceneAsync(0);
                     SceneManager.UnloadSceneAsync(1);
                     SceneManager.LoadScene(3, LoadSceneMode.Additive);
+=======
+                    SceneManager.UnloadSceneAsync(rooms);
+                    SceneManager.UnloadSceneAsync(rooms + 1);
+                    rooms = rooms + 2;
+                    SceneManager.LoadScene(rooms, LoadSceneMode.Additive);
+>>>>>>> Stashed changes
                 }
             }
         }
