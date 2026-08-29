@@ -22,31 +22,31 @@ public class NewRoomTrigger : MonoBehaviour
             {
                 if (hit.collider.CompareTag("DoorOne"))
                 {
-                    //SceneManager.UnloadSceneAsync(0);
-                    //SceneManager.UnloadSceneAsync(rooms + 1);
-                    //rooms = rooms + 2;
-                    //SceneManager.LoadScene(2, LoadSceneMode.Additive);
+                    cameraItem.transform.position = new Vector3(-203.0162f, 0, 34.7f);
+                    cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
+                }
+                if (hit.collider.CompareTag("DoorTwo"))
+                {
+                    cameraItem.transform.position = new Vector3(0, 0, 215.6f);
+                    cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
                 }
                 if (hit.collider.CompareTag("DoorThree"))
                 {
                     Debug.Log("DoorThree Clicked");
-
-                    /*
-                    mouseSphere.transform.position = new Vector3(199f, 20.87f, -28.36f);
-                    mainCam.transform.position = new Vector3(199f, 21.78f, -38.36f);
-                    cinemachine.transform.position = new Vector3(199f, 21.78f, -38.36f);*/
                     cameraItem.transform.position = new Vector3(189.1838f, 0, 34.7f);
-                    //scriptCam.calculateBounds(mouseSphere.transform.position);
-                    //scriptCam.calculateBounds(cameraItem.transform.GetChild(0).transform.position);
-
-                    //cameraItem.GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
                     cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
-
-                    //SceneManager.UnloadSceneAsync(0);
-                    //SceneManager.UnloadSceneAsync(rooms + 1);
-                    //rooms = rooms + 2;
-                    //SceneManager.LoadScene(2, LoadSceneMode.Additive);
-
+                }
+                if (hit.collider.CompareTag("DoorFour"))
+                {
+                    Debug.Log("DoorFour Clicked");
+                    cameraItem.transform.position = new Vector3(0, 0, -150.6285f);
+                    cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
+                }
+                if (hit.collider.CompareTag("Return"))
+                {
+                    Debug.Log("Return Clicked");
+                    cameraItem.transform.position = new Vector3(0, 0, 34.7f);
+                    cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
                 }
             }
         }

@@ -20,6 +20,7 @@ TagManager:
   - DoorTwo
   - DoorThree
   - DoorFour
+  - Return
   layers:
   - Default
   - TransparentFX
