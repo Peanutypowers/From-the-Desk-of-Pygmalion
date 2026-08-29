@@ -19,10 +19,15 @@ public class NewRoomTrigger : MonoBehaviour
             {
                 if (hit.collider.CompareTag("DoorOne"))
                 {
+                    cameraItem.transform.position = new Vector3(-203.0162f, 0, 34.7f);
                     //SceneManager.UnloadSceneAsync(0);
                     //SceneManager.UnloadSceneAsync(rooms + 1);
                     //rooms = rooms + 2;
                     //SceneManager.LoadScene(2, LoadSceneMode.Additive);
+                }
+                if (hit.collider.CompareTag("DoorTwo"))
+                {
+                    cameraItem.transform.position = new Vector3(0, 0, 188.4715f);
                 }
                 if (hit.collider.CompareTag("DoorThree"))
                 {
@@ -36,8 +41,11 @@ public class NewRoomTrigger : MonoBehaviour
                     //SceneManager.UnloadSceneAsync(0);
                     //SceneManager.UnloadSceneAsync(rooms + 1);
                     //rooms = rooms + 2;
-                    //SceneManager.LoadScene(2, LoadSceneMode.Additive);
-
+                    //SceneManager.LoadScene(2, LoadSceneMode.Additive
+                }
+                if(hit.collider.CompareTag("DoorFour"))
+                {
+                    cameraItem.transform.position = new Vector3(0, 0, -185.6285f);
                 }
             }
         }
