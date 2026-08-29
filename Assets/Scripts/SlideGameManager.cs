@@ -106,10 +106,10 @@ public class SlideGameManager : MonoBehaviour
     {
         pieces = new List<Transform>();
         roomNum = GameObject.Find("Doorway");
-        difficulty = roomNum.GetComponent<NewRoomTrigger>().rooms;
+        //difficulty = roomNum.GetComponent<NewRoomTrigger>().rooms;
         pieces = new List<Transform>();
         //size of the board, increment these if statements based on how many scenes are being laoded/unloaded
-        if (difficulty < 4)
+        /*if (difficulty < 4)
         {
             size = 3;
         }
@@ -120,7 +120,8 @@ public class SlideGameManager : MonoBehaviour
         else if (difficulty > 8 && difficulty < 14)
         {
             size = 5;
-        }
+        }*/
+        size = 5;
         completions = 0;
         CreateGamePieces(0.01f);
     }
