@@ -20,32 +20,25 @@ public class NewRoomTrigger : MonoBehaviour
                 if (hit.collider.CompareTag("DoorOne"))
                 {
                     cameraItem.transform.position = new Vector3(-203.0162f, 0, 34.7f);
-                    //SceneManager.UnloadSceneAsync(0);
-                    //SceneManager.UnloadSceneAsync(rooms + 1);
-                    //rooms = rooms + 2;
-                    //SceneManager.LoadScene(2, LoadSceneMode.Additive);
                 }
                 if (hit.collider.CompareTag("DoorTwo"))
                 {
-                    cameraItem.transform.position = new Vector3(0, 0, 188.4715f);
+                    cameraItem.transform.position = new Vector3(0, 0, 215.6f);
                 }
                 if (hit.collider.CompareTag("DoorThree"))
                 {
                     Debug.Log("DoorThree Clicked");
-
-                    /*
-                    mouseSphere.transform.position = new Vector3(199f, 20.87f, -28.36f);
-                    mainCam.transform.position = new Vector3(199f, 21.78f, -38.36f);
-                    cinemachine.transform.position = new Vector3(199f, 21.78f, -38.36f);*/
                     cameraItem.transform.position = new Vector3(189.1838f, 0, 34.7f);
-                    //SceneManager.UnloadSceneAsync(0);
-                    //SceneManager.UnloadSceneAsync(rooms + 1);
-                    //rooms = rooms + 2;
-                    //SceneManager.LoadScene(2, LoadSceneMode.Additive
                 }
-                if(hit.collider.CompareTag("DoorFour"))
+                if (hit.collider.CompareTag("DoorFour"))
                 {
-                    cameraItem.transform.position = new Vector3(0, 0, -185.6285f);
+                    Debug.Log("DoorFour Clicked");
+                    cameraItem.transform.position = new Vector3(0, 0, -150.6285f);
+                }
+                if (hit.collider.CompareTag("Return"))
+                {
+                    Debug.Log("Return Clicked");
+                    cameraItem.transform.position = new Vector3(0, 0, 34.7f);
                 }
             }
         }
