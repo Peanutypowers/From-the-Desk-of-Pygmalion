@@ -6,9 +6,10 @@ public class NewRoomTrigger : MonoBehaviour
 {
     //public int rooms = 3;
     // Update is called once per frame
-    public GameObject mouseSphere;
+    /*public GameObject mouseSphere;
     public GameObject mainCam;
-    public GameObject cinemachine;
+    public GameObject cinemachine;*/
+    public GameObject cameraItem;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -26,9 +27,12 @@ public class NewRoomTrigger : MonoBehaviour
                 if (hit.collider.CompareTag("DoorThree"))
                 {
                     Debug.Log("DoorThree Clicked");
+
+                    /*
                     mouseSphere.transform.position = new Vector3(199f, 20.87f, -28.36f);
                     mainCam.transform.position = new Vector3(199f, 21.78f, -38.36f);
-                    cinemachine.transform.position = new Vector3(199f, 21.78f, -38.36f);
+                    cinemachine.transform.position = new Vector3(199f, 21.78f, -38.36f);*/
+                    cameraItem.transform.position = new Vector3(189.1838f, 0, 34.7f);
                     //SceneManager.UnloadSceneAsync(0);
                     //SceneManager.UnloadSceneAsync(rooms + 1);
                     //rooms = rooms + 2;

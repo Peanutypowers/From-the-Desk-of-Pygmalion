@@ -2378,6 +2378,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 194589710081123615, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
+      propertyPath: cameraItem
+      value: 
+      objectReference: {fileID: 799767411}
     - target: {fileID: 876343058513395894, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2923,6 +2927,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 194589710081123615, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
+      propertyPath: cameraItem
+      value: 
+      objectReference: {fileID: 799767411}
     - target: {fileID: 876343058513395894, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7067,6 +7075,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1863791137}
     - target: {fileID: 194589710081123615, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
+      propertyPath: cameraItem
+      value: 
+      objectReference: {fileID: 799767411}
+    - target: {fileID: 194589710081123615, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
       propertyPath: cinemachine
       value: 
       objectReference: {fileID: 1213640237}
@@ -8416,6 +8428,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 194589710081123615, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
+      propertyPath: cameraItem
+      value: 
+      objectReference: {fileID: 799767411}
     - target: {fileID: 876343058513395894, guid: a144017d500f94c40b7d3465e5c56111, type: 3}
       propertyPath: m_Enabled
       value: 0
