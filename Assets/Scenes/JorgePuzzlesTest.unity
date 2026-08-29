@@ -1407,11 +1407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e603d2254265e4c9da95264d76e9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::iSpyEnabler
+  vcamFollow: {fileID: 0}
   returnCamera: {fileID: 1696512186}
   checklist: {fileID: 1266362791}
   iSpyPuzzleActive: 0
-  cam: {fileID: 0}
-  vcam: {fileID: 0}
 --- !u!65 &1103191198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2058,7 +2057,7 @@ PrefabInstance:
     - target: {fileID: 540850465558767829, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8225f98ca13aea84c84e56fa216f54f6, type: 3}
+      objectReference: {fileID: 21300000, guid: 9bc8c5c411ecd3a48a98af3f93a241b5, type: 3}
     - target: {fileID: 2264107563512063159, guid: 6690dd126cb593b4a84f392805eb0687, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.94182426
@@ -2387,7 +2386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.399994, y: -17.5}
+  m_AnchoredPosition: {x: 24.400024, y: -17.5}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696512186
