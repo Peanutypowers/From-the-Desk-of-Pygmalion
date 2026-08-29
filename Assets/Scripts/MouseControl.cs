@@ -71,13 +71,12 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        
+        calculateBounds(transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        calculateBounds(transform.position);
         // Hides the right/left movement buttons when the inventory is pulled up
         if (Input.GetButtonDown("Inventory") && buttonActivated)
         {
@@ -138,7 +137,7 @@ public class CameraController : MonoBehaviour
     }
 
     // Calculate bounds based on mouseSphere's starting position
-    void calculateBounds(Vector3 targetPosition) {
+    public void calculateBounds(Vector3 targetPosition) {
         leftBound = targetPosition.x - 5f;
         rightBound = targetPosition.x + 5f;
         leftZBound = targetPosition.z - 5f;

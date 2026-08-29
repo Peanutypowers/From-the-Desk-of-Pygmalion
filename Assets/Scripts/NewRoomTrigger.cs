@@ -10,6 +10,9 @@ public class NewRoomTrigger : MonoBehaviour
     public GameObject mainCam;
     public GameObject cinemachine;*/
     public GameObject cameraItem;
+    //public GameObject mouseSphere;
+    //public CameraController scriptCam;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -33,6 +36,12 @@ public class NewRoomTrigger : MonoBehaviour
                     mainCam.transform.position = new Vector3(199f, 21.78f, -38.36f);
                     cinemachine.transform.position = new Vector3(199f, 21.78f, -38.36f);*/
                     cameraItem.transform.position = new Vector3(189.1838f, 0, 34.7f);
+                    //scriptCam.calculateBounds(mouseSphere.transform.position);
+                    //scriptCam.calculateBounds(cameraItem.transform.GetChild(0).transform.position);
+
+                    //cameraItem.GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
+                    cameraItem.transform.GetChild(0).GetComponent<CameraController>().calculateBounds(cameraItem.transform.GetChild(0).transform.position);
+
                     //SceneManager.UnloadSceneAsync(0);
                     //SceneManager.UnloadSceneAsync(rooms + 1);
                     //rooms = rooms + 2;
